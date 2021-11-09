@@ -1,8 +1,17 @@
 # DB data
 docker/db/data/*
 docker/nginx/ssl/*
-server/*
-!server/info.php
-!server/index.html
 .DS_Store
 docker/nginx/.DS_Store
+server/kld//node_modules
+server/kld//public/hot
+server/kld//public/storage
+server/kld//storage/*.key
+server/kld//vendor
+server/kld/.env
+server/kld/.env.backup
+server/kld/.phpunit.result.cache
+server/kld/Homestead.json
+server/kld/Homestead.yaml
+server/kld/npm-debug.log
+server/kld/yarn-error.log
