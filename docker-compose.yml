@@ -2,7 +2,7 @@ version: "3"
 
 services:
   app:
-    container_name: app
+    container_name: kld-app
     build: ./docker/php
     environment:
       APP_ENV: "development"
@@ -23,12 +23,18 @@ services:
 
   nginx:
     image: nginx
-    container_name: nginx
+    container_name: kld-nginx
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./server:/var/www
+      # - ./server:/var/www
+      - ./server/kld/app:/var/www/kld/app
+      - ./server/kld/config:/var/www/kld/config
+      - ./server/kld/database:/var/www/kld/database
+      - ./server/kld/public:/var/www/kld/public
+      - ./server/kld/resources:/var/www/kld/resources
+      - ./server/kld/routes:/var/www/kld/routes
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./docker/nginx/ssl:/etc/nginx/ssl
     depends_on:
@@ -36,7 +42,7 @@ services:
 
   db:
     image: postgres:12
-    container_name: db
+    container_name: kld-db
     environment:
       TZ: "Asia/Tokyo"
       POSTGRES_DB: "docker"
