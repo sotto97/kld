@@ -10,7 +10,7 @@ services:
       LOG_CHANNEL: "stderr"
       DB_CONNECTION: "pgsql"
       DB_HOST: "db"
-      DB_PORT: "5433"
+      DB_PORT: "5432"
       DB_DATABASE: "docker"
       DB_USERNAME: "docker"
       DB_PASSWORD: "docker"
@@ -52,4 +52,4 @@ services:
       - ./docker/db/data:/var/lib/postgresql/data
       - ./docker/db/sql:/docker-entrypoint-initdb.d
     ports:
-      - 5433:5432
+      - 5432:5432
