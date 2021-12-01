@@ -24,9 +24,10 @@ Route::get('/welcome', function () {
 // Route::get()
 Auth::routes();
 
-Route::get('/home', 'HomeController@index
-')->name('home');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+//     Route::get('', 'UserController@index')->name('user.index');
+//     Route::get('{id}', 'UserController@show')->name('name.show');
+//     Route::get('edit/{id}', 'UserController@edit')->name('name.edit');
+// });
