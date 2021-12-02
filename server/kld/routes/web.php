@@ -31,3 +31,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //     Route::get('{id}', 'UserController@show')->name('name.show');
 //     Route::get('edit/{id}', 'UserController@edit')->name('name.edit');
 // });
+
+// Route::group(['prefix' => 'article', 'middleware' => 'auth'], function() {
+//     Route::get('', 'ArticleController@index')->name('artile.index');
+//     Route::get('{id}', 'ArticleController@show')->name('artile.show');
+//     Route::get('edit/{id}', 'ArticleController@edit')->name('artile.edit');
+// });
