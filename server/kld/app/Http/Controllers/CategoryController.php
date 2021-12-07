@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('category.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -35,7 +35,38 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category;
+
+        $category->name = $request->input('name');
+
+        $category->save();
+
+        return redirect('/category');
+        // INSERT INTO categories SELECT nextval(id),name,created_at,updated_at FROM categories WHERE id = 1;
+        // INSERT INTO 住所録(101511, 名称, 住所, ..., Xn) FROM 住所録 WHERE コード = 511000
+        // INSERT INTO categories VALUES (nextval('categories_id_seq'), name, now(), now()); FROM categories WHERE id = 1;
+        // SELECT * FROM categories WHERE id = 1;
+
+        // INSERT INTO item
+        // SELECT '鈴木' as 所有者, *
+        // FROM   item
+        // WHERE  所有者 = '田島'
+
+        // INSERT INTO categories SELECT nextval('categories_id_seq') as id * FROM categories WHERE  id = 1;
+
+        // CREATE TEMPORARY TABLE tmp_item FROM item WHERE 所有者='田島';
+        // UPDATE tmp_item set id = '鈴木';
+        // INSERT INTO item SELECT * FROM tmp_item;
+
+        // CREATE TEMPORARY TABLE ctg_table FROM categories WHERE id = 1;
+        // UPDATE ctg_table set id = nextval('categories_id_seq');
+        // INSERT INTO categories SELECT * FROM ctg_table;
+
+        // select nextval('categories_id_seq') from categories;
+
+        // これでいける
+        // insert into categories select nextval('categories_id_seq'), name, now(), now() from categories where id = 1;
+        // insert into categories select nextval('categories_id_seq'), name, now(), now() from categories where id IN (1,5);
     }
 
     /**

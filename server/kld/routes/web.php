@@ -40,3 +40,11 @@ Route::group(['prefix' => 'article', 'middleware' => 'auth'], function() {
     Route::post('{id}', 'ArticleController@store')->name('article.store');
     Route::get('edit/{id}', 'ArticleController@edit')->name('article.edit');
 });
+
+Route::group(['prefix' => 'category', 'middleware' => 'auth'], function(){
+    Route::get('', 'CategoryController@index')->name('category.index');
+    Route::get('create', 'CategoryController@create')->name('category.create');
+    Route::get('{id}', 'CategoryController@show')->name('category.show');
+    Route::post('store', 'CategoryController@store')->name('category.store');
+    Route::get('edit', 'CategoryController@edit')->name('category.edit');
+});
