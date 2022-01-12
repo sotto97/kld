@@ -21,13 +21,12 @@
             </tr>
         </thead>
         <tbody class="text-left">
+            @foreach ($categories as $category)
             <tr>
-                <td>1</td>
-                <td>デモクリニック</td>
-                <td>
-                    <p class="transition mb-0 duration-500 w-full bg-green-500 text-center rounded-full">対応中</p>
-                </td>
+                <td>{{ $category->id }}</td>
+                <td>{{ $category->name }}</td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
