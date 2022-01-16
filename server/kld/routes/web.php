@@ -22,17 +22,21 @@ Route::get('/welcome', function () {
     return view('welcome2');
 });
 
-// Route::get()
-Auth::routes();
+// 【認証機能】Auth::route(); を分解して書き直すと以下になる。
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
-//     Route::get('', 'UserController@index')->name('user.index');
-//     Route::get('{id}', 'UserController@show')->name('name.show');
-//     Route::get('edit/{id}', 'UserController@edit')->name('name.edit');
-// });
-
+// 【ナレッジ関連】
 Route::group(['prefix' => 'article', 'middleware' => 'auth'], function() {
     Route::get('', 'ArticleController@index')->name('article.index');
     Route::get('{id}', 'ArticleController@show')->name('article.show');
@@ -41,6 +45,7 @@ Route::group(['prefix' => 'article', 'middleware' => 'auth'], function() {
     Route::get('edit/{id}', 'ArticleController@edit')->name('article.edit');
 });
 
+// 【カテゴリ関連】
 Route::group(['prefix' => 'category', 'middleware' => 'auth'], function(){
     Route::get('', 'CategoryController@index')->name('category.index');
     Route::get('create', 'CategoryController@create')->name('category.create');
@@ -50,3 +55,12 @@ Route::group(['prefix' => 'category', 'middleware' => 'auth'], function(){
     Route::post('update/{id}', 'CategoryController@update')->name('category.update');
     Route::post('delete/{id}', 'CategoryController@destroy')->name('category.delete');
 });
+
+//【ユーザー管理】
+// Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+//     Route::get('', 'UserController@index')->name('user.index');
+//     Route::get('{id}', 'UserController@show')->name('name.show');
+//     Route::get('edit/{id}', 'UserController@edit')->name('name.edit');
+// });
+
+
