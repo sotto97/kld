@@ -13,7 +13,8 @@
                 <tr>
                     <th class="w-4/12">ID</th>
                     <th class="w-4/12">Name</th>
-                    <th class="w-4/12"></th>
+                    <th class="w-2/12"></th>
+                    <th class="w-2/12"></th>
                 </tr>
             </thead>
             <tbody class="text-left">
@@ -25,6 +26,12 @@
                         <a href="{{ route('category.edit', ['id'=> $category->id]) }}">
                             <button class="bg-teal-500 hover:bg-teal-600 text-white py-1 w-1/2 mx-auto rounded-full">edit</button>
                         </a>
+                    </td>
+                    <td class="text-center">
+                        <form action="{{ route('category.delete', ['id'=>$category->id] ) }}" method="post">
+                            @csrf
+                            <button class="bg-red-500 hover:bg-red-600 text-white py-1 w-1/2 mx-auto rounded-full">delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
