@@ -15,11 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = DB::select("select * from categories order by created_at desc");
+        $categories = DB::select("select * from categories order by created_at asc");
         return view(('category.index'), compact('categories'));
-
-        // $workouts = DB::select("SELECT * FROM workouts ORDER BY date desc");
-        // return view(('workouts.index'), compact('workouts'));
     }
 
     /**
@@ -69,6 +66,7 @@ class CategoryController extends Controller
     public function edit(Category $category, $id)
     {
         $category = Category::find($id);
+
         return view (('category.edit'),compact('category'));
     }
 
@@ -98,7 +96,9 @@ class CategoryController extends Controller
     public function destroy(Category $category, $id)
     {
         $category = Category::find($id);
+
         $category->delete();
+
         return redirect('category');
     }
 }
