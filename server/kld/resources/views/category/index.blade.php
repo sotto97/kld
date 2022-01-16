@@ -21,7 +21,11 @@
                 <tr class="">
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
-                    <td class="text-center"><button class="bg-teal-500 hover:bg-teal-600 text-white py-1 w-1/2 mx-auto rounded-full">edit</button></td>
+                    <td class="text-center">
+                        <a href="{{ route('category.edit', ['id'=> $category->id]) }}">
+                            <button class="bg-teal-500 hover:bg-teal-600 text-white py-1 w-1/2 mx-auto rounded-full">edit</button>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
