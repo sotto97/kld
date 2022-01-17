@@ -2,19 +2,21 @@
 
 @section('content')
 <div class="container w-full">
-    <div class="">
-        <a href="{{ route('category.create') }}" class="">
-            <p class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">カテゴリを登録する</p>
-        </a>
-    </div>
-    <div class="">
-        <a href="{{ route('article.create') }}" class="">
-            <p class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">今日のナレッジを登録する</p>
-        </a>
-    </div>
+    <section id='nav' class="flex w-full mb-2">
+        <div class="flex1 w-1/2">
+            <a href="{{ route('article.create') }}" class="">
+                <p class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">今日のナレッジを登録する</p>
+            </a>
+        </div>
+        <div class="flex1 w-1/2">
+            <a href="{{ route('category.create') }}" class="">
+                <p class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">カテゴリを登録する</p>
+            </a>
+        </div>
+    </section>
     <table class="table table-hover table-dark text-white">
         <thead class="w-full">
-            <tr>
+            <tr class="text-center">
                 <th class="w-1/12">ID</th>
                 <th class="w-2/12">クライアント名</th>
                 <th class="w-1/12">カテゴリ</th>
