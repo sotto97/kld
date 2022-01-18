@@ -46,14 +46,14 @@ Route::group(['prefix' => 'article', 'middleware' => 'auth'], function() {
 });
 
 // 【カテゴリ関連】
-Route::group(['prefix' => 'client', 'middleware' => 'auth'], function(){
-    Route::get('', 'ClientController@index')->name('client.index');
-    Route::get('create', 'ClientController@create')->name('client.create');
-    Route::post('store', 'ClientController@store')->name('client.store');
-    Route::get('{id}', 'ClientController@show')->name('client.show');
-    Route::get('edit/{id}', 'ClientController@edit')->name('client.edit');
-    Route::post('update/{id}', 'ClientController@update')->name('client.update');
-    Route::post('delete/{id}', 'ClientController@destroy')->name('client.delete');
+Route::group(['prefix' => 'category', 'middleware' => 'auth'], function(){
+    Route::get('', 'CategoryController@index')->name('category.index');
+    Route::get('create', 'CategoryController@create')->name('category.create');
+    Route::post('store', 'CategoryController@store')->name('category.store');
+    Route::get('{id}', 'CategoryController@show')->name('category.show');
+    Route::get('edit/{id}', 'CategoryController@edit')->name('category.edit');
+    Route::post('update/{id}', 'CategoryController@update')->name('category.update');
+    Route::post('delete/{id}', 'CategoryController@destroy')->name('category.delete');
 });
 
 // 【クライアント関連】
