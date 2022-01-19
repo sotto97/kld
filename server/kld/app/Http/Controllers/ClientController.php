@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -14,7 +15,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('client.index');
+        // $clients = Client::get();
+        $clients = DB::select("select * from clients order by created_at asc");
+        dd($clients);
+        return view(('client.index'), compact('clients'));
     }
 
     /**
@@ -24,7 +28,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.index');
+        return view('client.create');
     }
 
     /**

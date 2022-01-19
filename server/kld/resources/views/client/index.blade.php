@@ -18,17 +18,17 @@
                 </tr>
             </thead>
             <tbody class="text-left">
-                @foreach ($categories as $category)
+                @foreach ($clients as $client)
                 <tr class="">
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
+                    <td>{{ $client->client_id }}</td>
+                    <td>{{ $client->name }}</td>
                     <td class="text-center">
-                        <a href="{{ route('category.edit', ['id'=> $category->id]) }}">
+                        <a href="{{ route('client.edit', ['id'=> $client->id]) }}">
                             <button class="bg-teal-500 hover:bg-teal-600 text-white py-1 w-1/2 mx-auto rounded-full">edit</button>
                         </a>
                     </td>
                     <td class="text-center">
-                        <form action="{{ route('category.delete', ['id'=>$category->id] ) }}" method="post">
+                        <form action="{{ route('client.delete', ['id'=>$client->id] ) }}" method="post">
                             @csrf
                             <button class="bg-red-500 hover:bg-red-600 text-white py-1 w-1/2 mx-auto rounded-full">delete</button>
                         </form>

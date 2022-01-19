@@ -2,11 +2,17 @@
 
 @section('content')
 <div class="container w-full">
-    <form action="{{ route('category.store') }}" method="post">
+    <form action="{{ route('client.store') }}" method="post">
         @csrf
         <table class="w-full">
             <tr>
-                <th class="w-1/4">カテゴリ</th>
+                <th class="w-1/4">クライアントID</th>
+                <td class="w-3/4">
+                    <input type="text" class="form-control" name="name">
+                </td>
+            </tr>
+            <tr>
+                <th class="w-1/4">クライアント名</th>
                 <td class="w-3/4">
                     <input type="text" class="form-control" name="name">
                 </td>
