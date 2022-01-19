@@ -17,7 +17,6 @@ class ClientController extends Controller
     {
         // $clients = Client::get();
         $clients = DB::select("select * from clients order by created_at asc");
-        dd($clients);
         return view(('client.index'), compact('clients'));
     }
 
@@ -39,6 +38,12 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        $client = new Client();
+
+        $client->client_id  = $request->input('client_id');
+        $client->name       = $request->input('name');
+        $client->save();
+
         return redirect('client');
     }
 
@@ -59,9 +64,11 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Client $client, $id)
     {
-        return view('client.index');
+        $client = Client::find($id);
+
+        return view(('client.edit'), compact('client'));
     }
 
     /**
@@ -71,8 +78,14 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Client $client, $id)
     {
+        $client = Client::find($id);
+
+        $client->client_id = $request->input('client_id');
+        $client->name = $request->input('name');
+        $client->save();
+
         return redirect('client');
     }
 
@@ -82,8 +95,12 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Client $client, $id)
     {
+        $client = Client::find($id);
+
+        $client->delete();
+
         return redirect('client');
     }
 }

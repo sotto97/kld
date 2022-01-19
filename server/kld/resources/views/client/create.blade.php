@@ -8,7 +8,7 @@
             <tr>
                 <th class="w-1/4">クライアントID</th>
                 <td class="w-3/4">
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="client_id">
                 </td>
             </tr>
             <tr>
