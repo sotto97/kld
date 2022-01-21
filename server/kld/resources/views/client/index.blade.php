@@ -4,7 +4,7 @@
 <section id="content" class="container w-full">
     <div class="">
         <a href="{{ route('client.create') }}" class="">
-            <p class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">Add New Client</p>
+            <p class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">クライアント新規登録</p>
         </a>
     </div>
     <section id="categories" class="pt-2">
