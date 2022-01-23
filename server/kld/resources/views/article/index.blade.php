@@ -22,7 +22,6 @@
     <table class="table table-hover table-dark text-white">
         <thead class="w-full">
             <tr class="text-center">
-                <th class="w-1/12">ID</th>
                 <th class="w-2/12">クライアント名</th>
                 <th class="w-1/12">カテゴリ</th>
                 <th class="w-5/12">タイトル</th>
@@ -32,61 +31,16 @@
             </tr>
         </thead>
         <tbody class="text-left">
+            @foreach ($articles as $article)
             <tr>
-                <td>K00316</td>
-                <td>デモクリニック</td>
-                <td>@link</td>
-                <td>未決済一覧の削除</td>
-                <td>21-12-04</td>
-                <td>下村</td>
-                <td>
-                    <p class="transition mb-0 duration-500 w-full bg-green-500 text-center rounded-full">対応中</p>
-                </td>
+                <td>{{ $article->client->name }}</td>
+                <td>{{ $article->categorry }}</td>
+                <td>{{ $article->subject }}</td>
+                <td>{{ $article->limit_dt }}</td>
+                <td>{{ $article->user->name }}</td>
+                <td>{{ $article->status }}</td>
             </tr>
-            <tr>
-                <td>K00316</td>
-                <td>デモクリニック</td>
-                <td>DearBaby</td>
-                <td>未決済一覧の削除</td>
-                <td>21-12-04</td>
-                <td>下村</td>
-                <td>
-                    <p class="transition mb-0 duration-500 w-full bg-gray-400 text-center rounded-full">下書き</p>
-                </td>
-            </tr>
-            <tr>
-                <td>K00316</td>
-                <td>デモクリニック</td>
-                <td>DearBaby</td>
-                <td>未決済一覧の削除</td>
-                <td>21-12-04</td>
-                <td>下村</td>
-                <td>
-                    <p class="transition mb-0 duration-500 w-full bg-green-500 text-center rounded-full">対応中</p>
-                </td>
-            </tr>
-            <tr>
-                <td>K00316</td>
-                <td>デモクリニック</td>
-                <td>EchoDiary</td>
-                <td>未決済一覧の削除</td>
-                <td>21-12-04</td>
-                <td>下村</td>
-                <td>
-                    <p class="transition mb-0 duration-500 w-full bg-green-500 text-center rounded-full">対応中</p>
-                </td>
-            </tr>
-            <tr>
-                <td>K00316</td>
-                <td>デモクリニック</td>
-                <td>その他</td>
-                <td>未決済一覧の削除</td>
-                <td>21-12-04</td>
-                <td>下村</td>
-                <td>
-                    <p class="transition mb-0 duration-500 w-full bg-blue-500 text-center rounded-full">完了</p>
-                </td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

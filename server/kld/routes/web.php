@@ -39,8 +39,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 // 【ナレッジ関連】
 Route::group(['prefix' => 'article', 'middleware' => 'auth'], function() {
     Route::get('', 'ArticleController@index')->name('article.index');
-    Route::get('{id}', 'ArticleController@show')->name('article.show');
     Route::get('create', 'ArticleController@create')->name('article.create');
+    Route::get('{id}', 'ArticleController@show')->name('article.show');
     Route::post('{id}', 'ArticleController@store')->name('article.store');
     Route::get('edit/{id}', 'ArticleController@edit')->name('article.edit');
 });

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Client;
+use App\Category;
 use Illuminate\Http\Request;
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -15,7 +18,16 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('article.index');
+        // $articles   = DB::table('articles')
+        //             ->select('id', 'category_id', 'user_id', 'subject', 'status', 'limit_dt', 'order_derail', 'report','answer','','',)
+        //             ->get();
+
+        // すべての情報を取得
+        $articles   = DB::table('articles')
+                    ->orderByDesc('id')
+                    ->get();
+
+        return view('article.index', ['articles' => $articles ]);
     }
 
     /**
@@ -25,7 +37,19 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        $categories = DB::table('categories')
+                    ->select('id','name')
+                    ->get();
+
+        $clients = DB::table('clients')
+                    ->select('id','name')
+                    ->get();
+
+        $users = DB::table('users')
+                    ->select('id','name')
+                    ->get();
+
+        return view('article.create', ['categories' => $categories, 'clients' => $clients, 'users' => $users]);
     }
 
     /**
@@ -36,6 +60,19 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $article = new Article;
+        
+        $article->client_id     = $request->client_id;
+        $article->user_id       = $request->user_id;
+        $article->limit_dt      = $request->limit_dt;
+        $article->category_id   = $request->category_id;
+        $article->subject       = $request->subject;
+        $article->order_detail  = $request->order_detail;
+        $article->answer        = $request->answer;
+        $article->status        = $request->status;
+
+        $article -> save();
+
         return redirect('/article');
     }
 
@@ -47,7 +84,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('article.create');
+        // return view('article.create');
     }
 
     /**
@@ -58,7 +95,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('article.create');
+        // return view('article.create');
     }
 
     /**

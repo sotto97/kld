@@ -8,68 +8,69 @@
             <tr>
                 <th class="w-1/4">クライアント</th>
                 <td class="w-3/4">
-                    <select name="" id="" class="form-control mb-2">
-                        <option value="">K00293</option>
-                        <option value="">T99870</option>
-                        <option value="">I00982</option>
+                    <select name="client_id" id="" class="form-control mb-2">
+                        @foreach ($clients as $client)
+                        <option value="{{ $client->id }}">{{ $client->name }}</option>
+                        @endforeach
                     </select>
                 </td>
             </tr>
             <tr class="">
                 <th class="w-1/4">作成者</th>
                 <td class="w-3/4">
-                    <select name="" id="" class="form-control mb-2">
-                        <option value="">下村</option>
-                        <option value="">和田</option>
-                        <option value="">小原</option>
+                    <select name="user_id" id="" class="form-control mb-2">
+                        @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
                     </select>
                 </td>
             </tr>
             <tr>
                 <th class="w-1/4">納期</th>
-                <td class="w-3/4"><input type="date" class="form-control mb-2"></td>
+                <td class="w-3/4"><input type="date" name="limit_dt" class="form-control mb-2"></td>
             </tr>
             <tr class="">
                 <th class="w-1/4">カテゴリー</th>
                 <td class="w-3/4">
-                    <select name="" id="" class="form-control mb-2">
-                        <option value="">アットリンク</option>
-                        <option value="">WEB予約</option>
-                        <option value="">DearBaby</option>
+                    <select name="category_id" id="" class="form-control mb-2">
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </td>
             </tr>
             <tr>
                 <th class="w-1/4">件名</th>
                 <td class="w-3/4">
-                    <input type="text" class="form-control mb-2">
+                    <input type="text" name="subject" class="form-control mb-2">
                 </td>
             </tr>
             <tr>
                 <th class="w-1/4">依頼内容</th>
                 <td class="w-3/4">
-                    <textarea class="form-control mb-2"></textarea>
+                    <textarea name="order_detail" class="form-control mb-2"></textarea>
                 </td>
             </tr>
             <tr>
                 <th class="w-1/4">調査概要</th>
                 <td class="w-3/4">
-                    <textarea class="form-control mb-2"></textarea>
+                    <textarea name="report" class="form-control mb-2"></textarea>
                 </td>
             </tr>
             <tr>
                 <th class="w-1/4">CSへの回答</th>
                 <td class="w-3/4">
-                    <textarea class="form-control mb-2"></textarea>
+                    <textarea name="answer" class="form-control mb-2"></textarea>
                 </td>
             </tr>
             <tr>
                 <th class="w-1/4">ステータス</th>
                 <td class="w-3/4">
-                    <select name="" id="" class="form-control mb-2">
-                        <option value="">対応中</option>
-                        <option value="">下書き</option>
-                        <option value="">完了</option>
+                    <select name="status" id="" class="form-control mb-2">
+                        <option value="0">未着手</option>
+                        <option value="1">対応中</option>
+                        <option value="2">下書き</option>
+                        <option value="3">完了</option>
                     </select>
                 </td>
             </tr>
