@@ -8,16 +8,16 @@ class Article extends Model
 {
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasOne('App\Category');
     }
 
     public function client()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo('App\Client');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User');
     }
 }

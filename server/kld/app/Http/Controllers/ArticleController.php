@@ -23,11 +23,17 @@ class ArticleController extends Controller
         //             ->get();
 
         // すべての情報を取得
-        $articles   = DB::table('articles')
-                    ->orderByDesc('id')
-                    ->get();
+        // $articles   = DB::table('articles')
+        //             // ->orderByDesc('id')
+        //             ->get();
 
-        return view('article.index', ['articles' => $articles ]);
+        $articles = DB::select('select * from articles order by id desc');
+        $users = DB::table('users')->get();
+        // dd($articles);
+
+        // dd($articles[1]);
+        // return view('article.index', ['articles' => $articles ]);
+        return view('article.index', compact('articles', 'users'));
     }
 
     /**
@@ -60,7 +66,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $article = new Article;
+        $article = new Article();
         
         $article->client_id     = $request->client_id;
         $article->user_id       = $request->user_id;
@@ -70,7 +76,6 @@ class ArticleController extends Controller
         $article->order_detail  = $request->order_detail;
         $article->answer        = $request->answer;
         $article->status        = $request->status;
-
         $article -> save();
 
         return redirect('/article');

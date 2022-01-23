@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    public function articles()
+    public function article()
     {
-        return $this->hasMany('App\Article', 'client_id');
+        return $this->hasMany('App\Articles');
     }
 }

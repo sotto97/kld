@@ -32,12 +32,13 @@
         </thead>
         <tbody class="text-left">
             @foreach ($articles as $article)
+            <?php var_dump($article->user->name) ?>
             <tr>
-                <td>{{ $article->client->name }}</td>
-                <td>{{ $article->categorry }}</td>
+                {{-- <td>{{ $article->client->name }}</td> --}}
+                {{-- <td>{{ $article->category->name }}</td> --}}
                 <td>{{ $article->subject }}</td>
                 <td>{{ $article->limit_dt }}</td>
-                <td>{{ $article->user->name }}</td>
+                {{-- <td>{{ $article->user->name }}</td> --}}
                 <td>{{ $article->status }}</td>
             </tr>
             @endforeach
