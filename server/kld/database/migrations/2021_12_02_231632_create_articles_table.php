@@ -15,9 +15,9 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('category_id')->comment('カテゴリID');
+            $table->integer('category_id')->unsigned()->comment('カテゴリID');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->integer('user_id')->comment('ユーザーID');
+            $table->integer('user_id')->unsigned()->comment('ユーザーID');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('subject')->nullable()->comment('件名');
             $table->integer('status')->comment('ステータス');

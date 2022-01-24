@@ -14,7 +14,7 @@ class AddClientIdToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->bigInteger('client_id')->nullable()->comment('クライアントID');
+            $table->bigInteger('client_id')->unsigned()->nullable()->comment('クライアントID');
             $table->foreign('client_id')->references('id')->on('clients');
         });
     }
