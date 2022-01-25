@@ -30,15 +30,31 @@
                 <th class="w-1/12">状況</th>
             </tr>
         </thead>
-        <tbody class="text-left">
+        <tbody class="text-center">
             @foreach ($articles as $article)
             <tr>
-                {{-- <td>{{ $article->client->name }}</td> --}}
-                {{-- <td>{{ $article->category->name }}</td> --}}
+                <td>{{ $article->client->name }}</td>
+                <td>{{ $article->category->name }}</td>
                 <td>{{ $article->subject }}</td>
                 <td>{{ $article->limit_dt }}</td>
                 <td>{{ $article->user->name }}</td>
-                <td>{{ $article->status }}</td>
+                @if ($article->status == 0)
+                <td class="">
+                    <button class="bg-yellow-600 p-1 rounded-lg">未着手</button>
+                </td>
+                @elseif($article->status == 1)
+                <td class="">
+                    <button class="bg-green-600 p-1 rounded-lg">対応中</button>
+                </td>
+                @elseif($article->status == 2)
+                <td class="">
+                    <button class="bg-gray-600 p-1 rounded-lg">下書き</button>
+                </td>
+                @elseif($article->status == 3)
+                <td class="">
+                    <button class="bg-blue-600 p-1 rounded-lg">完了</button>
+                </td>
+                @endif
             </tr>
             @endforeach
         </tbody>
