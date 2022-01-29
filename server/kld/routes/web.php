@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/welcome', function () {
-    return view('welcome2');
+Route::get('/', function () {
+    return view('top');
 });
 
 // 【認証機能】Auth::route(); を分解して書き直すと以下になる。

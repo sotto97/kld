@@ -79,5 +79,25 @@
             <input type="submit" value="登録する" class="bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2">
         </div>
     </form>
+    <ExampleComponent></ExampleComponent>
+    {{-- <div id="app">
+        <v-select name="hoge" :options="options" v-model="selected"></v-select>
+    </div> --}}
 </div>
+
+{{-- <script>
+    const vSelect = VueSelect.VueSelect;
+    import Vue from 'vue' import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css'; 
+    Vue.component('v-select', vSelect);
+ 
+    new Vue({ 
+    el: '#app', 
+    data: { 
+        selected: '',
+        options: [ 'foo', 'bar', 'baz' ] 
+    } 
+    })
+</script> --}}
+
 @endsection

@@ -12,7 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
-
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -23,13 +24,15 @@
 </head>
 
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="app" class="flex flex-col min-h-screen">
+        <nav class="navbar navbar-expand-md navbar-light bg-indigo-500 shadow-sm sticky top-0 z-10">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('article.index') }}">
+                <a class="navbar-brand text-white" href="{{ route('article.index') }}">
                     保守DB
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -44,31 +47,33 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
+                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                         </li>
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item  text-indigo-500" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                                                                      document.getElementById('logout-form').submit();">
                                     {{ __('ログアウト') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('client.index') }}">
+                                <a class="dropdown-item  text-indigo-500" href="{{ route('client.index') }}">
                                     {{ __('クライアント一覧') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('category.index') }}">
+                                <a class="dropdown-item  text-indigo-500" href="{{ route('category.index') }}">
                                     {{ __('カテゴリ一覧') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('article.index') }}">
+                                <a class="dropdown-item  text-indigo-500" href="{{ route('article.index') }}">
                                     {{ __('記事一覧') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -82,9 +87,17 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        {{-- mainのviewは全てここを共通としている --}}
+        <main class="flex-grow z-0">
             @yield('content')
         </main>
+
+        {{-- footer layoutに登録するかは検討中 --}}
+        <footer class=" w-full bg-indigo-500 flex justify-center h-12 text-white m-auto sticky bottom-0 z-10">
+            <div class='flex items-center'>
+                <p>offshore.com</p>
+            </div>
+        </footer>
     </div>
 </body>
 
