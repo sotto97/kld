@@ -36,6 +36,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <div class="w-full text-center text-white font-semibold">
+                    @include('layouts.title')
+                </div>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
