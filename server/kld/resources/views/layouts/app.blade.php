@@ -66,11 +66,6 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item  text-indigo-500" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('ログアウト') }}
-                                </a>
                                 <a class="dropdown-item  text-indigo-500" href="{{ route('client.index') }}">
                                     {{ __('クライアント一覧') }}
                                 </a>
@@ -79,6 +74,10 @@
                                 </a>
                                 <a class="dropdown-item  text-indigo-500" href="{{ route('article.index') }}">
                                     {{ __('記事一覧') }}
+                                </a>
+                                <a class="dropdown-item  text-indigo-500" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('ログアウト') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
