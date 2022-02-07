@@ -27,7 +27,7 @@
     <div id="app" class="flex flex-col min-h-screen">
         <nav class="navbar navbar-expand-md navbar-light bg-indigo-500 shadow-sm sticky top-0 z-10">
             <div class="container">
-                <a class="navbar-brand text-white" href="{{ route('article.index') }}">
+                <a class="navbar-brand text-white w-1/4" href="{{ route('article.index') }}">
                     保守DB
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -36,11 +36,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="w-full text-center text-white font-semibold">
+                <div class="w-2/4 text-center text-white font-semibold">
                     @include('layouts.title')
                 </div>
 
-                <div class="collapse navbar-collapse w-full" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse w-1/4" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
