@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container w-full">
+<div class="container items-center py-80">
     <form action="{{ route('client.store') }}" method="post">
         @csrf
         <table class="w-full">
