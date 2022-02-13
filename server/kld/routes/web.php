@@ -40,9 +40,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'article', 'middleware' => 'auth'], function() {
     Route::get('', 'ArticleController@index')->name('article.index');
     Route::get('create', 'ArticleController@create')->name('article.create');
+    Route::post('store', 'ArticleController@store')->name('article.store');
     Route::get('{id}', 'ArticleController@show')->name('article.show');
-    Route::post('{id}', 'ArticleController@store')->name('article.store');
     Route::get('edit/{id}', 'ArticleController@edit')->name('article.edit');
+    Route::post('update/{id}', 'ArticleController@update')->name('article.update');
 });
 
 // 【カテゴリ関連】

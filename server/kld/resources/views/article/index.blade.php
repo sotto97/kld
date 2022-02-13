@@ -41,7 +41,9 @@
                 </td>
                 @endif
                 <td>
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="hover:text-white">
+                        <i class="fa-solid fa-pen-to-square text-lg hover:text-gray-500"></i>
+                    </a>
                 </td>
             </tr>
             @endforeach
