@@ -8,10 +8,11 @@
             <tr class="text-center">
                 <th class="w-2/12">クライアント名</th>
                 <th class="w-1/12">カテゴリ</th>
-                <th class="w-5/12">タイトル</th>
+                <th class="w-4/12">タイトル</th>
                 <th class="w-1/12">日付</th>
                 <th class="w-1/12">作成者</th>
                 <th class="w-1/12">状況</th>
+                <th class="w-1/12"></th>
             </tr>
         </thead>
         <tbody class="text-center">
@@ -39,6 +40,9 @@
                     <button class="bg-blue-600 p-1 rounded-lg">完了</button>
                 </td>
                 @endif
+                <td>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </td>
             </tr>
             @endforeach
         </tbody>
