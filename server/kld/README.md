@@ -27,3 +27,11 @@
 -   ~~Font Awesome のインストール~~(2022/02/13)
 -   UI フローの作成
 -   テーブル定義・ER 図の作成
+
+# 開発補足メモ
+
+-   Github での認証が切れた時、再認証をする方法(Mac で開発する場合のみ)
+    -   [参考リンク]
+        -   https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+        -   https://qiita.com/shiro01/items/e886aa1e4beb404f9038
+    -   上記の手順で行えば OK
