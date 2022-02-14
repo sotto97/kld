@@ -18,25 +18,14 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        // $articles   = DB::table('articles')
-        //             ->select('id', 'category_id', 'user_id', 'subject', 'status', 'limit_dt', 'order_derail', 'report','answer','','',);
-                    // ->get();
-
         // すべての情報を取得
         // $articles   = DB::table('articles')
-        //             // ->orderByDesc('id')
+        //             ->orderByDesc('id')
         //             ->get();
 
-        // $articles = DB::select('SELECT * FROM articles ORDER BY id DESC');
-        // $articles = Article::with('user');
-        $articles = Article::all();
-        // $users = User::all()->get();
-        // dd($articles);
+        $articles = Article::orderBy('id', 'desc')->get();
 
-        // dd($articles[1]);
-        // return view('article.index', ['articles' => $articles ]);
         return view('article.index', compact('articles'));
-        // return view('article.index')->with('articles', $articles);
     }
 
     /**
@@ -137,6 +126,7 @@ class ArticleController extends Controller
         $article->category_id   = $request->category_id;
         $article->subject       = $request->subject;
         $article->order_detail  = $request->order_detail;
+        $article->report        = $request->report;
         $article->answer        = $request->answer;
         $article->status        = $request->status;
         $article -> save();
