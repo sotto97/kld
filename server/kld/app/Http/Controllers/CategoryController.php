@@ -39,6 +39,10 @@ class CategoryController extends Controller
     {
         $category = new Category;
 
+        $validatedData = $request->validate([
+            'name' => 'required',
+        ]);
+
         $category->name = $request->input('name');
 
         $category->save();
