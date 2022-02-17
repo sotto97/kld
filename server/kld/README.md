@@ -8,7 +8,9 @@
 -   ~~投稿編集機能の実装~~【2022/02/15 済】
     -   ~~編集画面は完成。更新はまだ試してない~~
 -   ~~カテゴリ機能のバリデーション実装~~
+    -   https://readouble.com/laravel/7.x/ja/validation.html
     -   エラ〜メッセージの日本語化
+        -   https://codelikes.com/laravel-validation-message-ja/#toc8
 -   クライアントのバリデーション実装
 
 ## フロントエンド
