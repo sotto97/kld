@@ -59,6 +59,17 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $article = new Article();
+
+        $validatedData = $request->validate([
+            'client_id'     => 'required',
+            'user_id'       => 'required',
+            'limit_dt'      => 'required',
+            'category_id'   => 'required',
+            'subject'       => 'required',
+            'order_detail'  => 'required',
+            'answer'        => 'required',
+            'status'        => 'required',
+        ]);
         
         $article->client_id     = $request->client_id;
         $article->user_id       = $request->user_id;
