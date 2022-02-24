@@ -155,9 +155,13 @@ return [
     */
 
     'attributes' => [
-        'name' => 'カテゴリ名',
-        'client_id' => 'クライアントID',
-        'client_name' => 'クライアント名',
-        'age' => '年齢',
+        'name'              => 'カテゴリ名',
+        'client_id'         => 'クライアントID',
+        'client_name'       => 'クライアント名',
+        'age'               => '年齢',
+        'limit_dt'          => '納期',
+        'subject'           => '件名',
+        'order_detail'      => '依頼内容',
+        'answer'            => '調査概要',
     ],
 ];

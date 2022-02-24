@@ -6,6 +6,15 @@
         <form action="{{ route('article.store') }}" method="post">
             @csrf
             <table class="w-full">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <tr>
                     <th class="w-1/4">クライアント</th>
                     <td class="w-3/4">
@@ -77,7 +86,8 @@
                 </tr>
             </table>
             <div class="w-3/4 mx-auto my-2">
-                <input type="submit" value="登録する" class="bg-gray-700 hover:bg-gray-500 rounded-lg text-white w-full p-2 transition">
+                <input type="submit" value="登録する"
+                    class="bg-gray-700 hover:bg-gray-500 rounded-lg text-white w-full p-2 transition">
             </div>
         </form>
         {{-- <div id="app">
