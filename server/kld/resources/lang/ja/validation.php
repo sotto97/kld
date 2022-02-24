@@ -155,7 +155,7 @@ return [
     */
 
     'attributes' => [
-        'name'              => 'カテゴリ名',
+        'category_name'     => 'カテゴリ名',
         'client_id'         => 'クライアントID',
         'client_name'       => 'クライアント名',
         'age'               => '年齢',
