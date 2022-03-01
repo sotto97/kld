@@ -4,10 +4,10 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-indigo-500">
-                        Example Component
+                        コンポーネントの例
                     </div>
 
-                    <div class="card-body">I'm an example component.</div>
+                    <div class="card-body">I'm an example .</div>
                 </div>
             </div>
         </div>
