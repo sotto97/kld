@@ -43003,12 +43003,12 @@ var staticRenderFns = [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header text-indigo-500" }, [
               _vm._v(
-                "\n                    Example Component\n                "
+                "\n                    コンポーネントの例\n                "
               ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v("I'm an example component."),
+              _vm._v("I'm an example ."),
             ]),
           ]),
         ]),
@@ -55499,8 +55499,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\sotto\Work\knowledge\server\kld\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\sotto\Work\knowledge\server\kld\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Yusuke/Desktop/work/kld/server/kld/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Yusuke/Desktop/work/kld/server/kld/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
