@@ -43,11 +43,11 @@ class CategoryController extends Controller
             'category_name' => 'required',
         ]);
 
-        $category->name = $request->input('name');
+        $category->name = $request->input('category_name');
 
         $category->save();
 
-        return redirect('/category');
+        // return redirect('/category');
     }
 
     /**
