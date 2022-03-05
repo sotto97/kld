@@ -15,8 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = DB::select("select * from categories order by created_at asc");
-        return view(('category.index'), compact('categories'));
+        $categories = DB::select(
+            "select * from categories order by created_at asc"
+        );
+        return view("category.index", compact("categories"));
     }
 
     /**
@@ -26,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view("category.create");
     }
 
     /**
@@ -37,13 +39,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category;
+        $category = new Category();
 
         $validatedData = $request->validate([
-            'category_name' => 'required',
+            "category_name" => "required",
         ]);
 
-        $category->name = $request->input('category_name');
+        $category->name = $request->input("category_name");
+        $category->name = $request->input("category_name");
 
         $category->save();
 
@@ -71,7 +74,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
 
-        return view (('category.edit'),compact('category'));
+        return view("category.edit", compact("category"));
     }
 
     /**
@@ -85,10 +88,10 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
 
-        $category->name = $request->input('name');
+        $category->name = $request->input("name");
         $category->save();
 
-        return redirect ("category");
+        return redirect("category");
     }
 
     /**
@@ -103,6 +106,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect('category');
+        return redirect("category");
     }
 }
