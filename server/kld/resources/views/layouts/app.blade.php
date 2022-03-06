@@ -11,7 +11,7 @@
     <title>保守DB</title>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <script src="https://unpkg.com/vue-select@latest"></script>
     <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
     <!-- Fonts -->
@@ -30,9 +30,7 @@
                 <a class="navbar-brand text-white w-1/4" href="{{ route('article.index') }}">
                     保守DB
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -60,8 +58,7 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
@@ -75,8 +72,7 @@
                                 <a class="dropdown-item  text-indigo-500" href="{{ route('article.index') }}">
                                     {{ __('記事一覧') }}
                                 </a>
-                                <a class="dropdown-item  text-indigo-500" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item  text-indigo-500" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('ログアウト') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

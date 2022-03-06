@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container w-full">
-    <form action="{{ route('category.update', ['id'=>$category->id]) }}" method="post">
+<div id="editCategory" class="container w-full">
+    <form @submit.prevent='UpdateCategory'>
         @csrf
         <table class="w-full">
             <tr>
                 <th class="w-1/4">カテゴリ</th>
                 <td class="w-3/4">
-                    <input type="text" class="form-control" name="name" value="{{ $category->name }}">
+                    <input v-model='category_name' type="text" class="form-control" name="name">
                 </td>
             </tr>
         </table>
@@ -17,4 +17,27 @@
         </div>
     </form>
 </div>
+
+<script>
+    var app = new Vue({
+        el: "#editCategory",
+        data:{
+            category_name: '{{ $category->name }}',
+        },
+        methods: {
+            UpdateCategory() {
+                axios.post('/category/update/' + '{{$category->id}}', {
+                    category_name:  this.category_name
+                })
+                .then(response => {
+                    console.log('更新に成功しました。');
+                    window.location.href = '/category';
+                })
+                .catch(error => {
+                    console.log('更新に失敗しました。');
+                })
+            }
+        }
+    })
+</script>
 @endsection

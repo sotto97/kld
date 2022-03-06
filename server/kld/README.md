@@ -51,4 +51,27 @@
     -   上記の手順で行えば OK
 
 -   Markdown の書き方
+
     > https://qiita.com/tbpgr/items/989c6badefff69377da7
+
+-   Prettier が VScode で機能しない場合、、、
+
+    -   Code formatter configured as formatter PHP ... 的な文が出た時
+
+    ```bash
+    ## 以下のコマンドを実行してから Prettier を再読み込みしたら可能になった。
+    npm install --save-dev prettier @prettier/plugin-php
+    ```
+
+    ```json
+    // package.jsonに以下のように書き込まれる
+    "devDependencies": {
+        "@prettier/plugin-php": "^0.18.2",
+        "axios": "^0.19",
+    },
+    ```
+
+    > 参考記事
+    >
+    > -   https://qiita.com/AkiraTameto/items/4cefe2608b03f396c7cd
+    > -   https://qiita.com/allJokin/items/7f9d6f98be27449ab624
