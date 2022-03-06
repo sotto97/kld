@@ -88,10 +88,10 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
 
-        $category->name = $request->input("name");
+        $category->name = $request->input("category_name");
         $category->save();
 
-        return redirect("category");
+        // return redirect("category");
     }
 
     /**
