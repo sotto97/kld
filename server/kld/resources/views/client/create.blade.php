@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container items-center py-80">
-    <form action="{{ route('client.store') }}" method="post">
+<div id="addClient" class="container items-center py-80">
+    <form @submit.prevent="addNewClient">
         @csrf
         <table class="w-full">
             @if ($errors->any())
@@ -32,4 +32,21 @@
         </div>
     </form>
 </div>
+
+<script>
+    var app = new Vue({
+        el: '#addClient',
+        data; {
+            client_id: '',
+            client_neme: '',
+        },
+        methods: {
+            addNewClient() {
+                axios.post('/client/store', {
+client_id: '',
+            client_neme: '',                })
+            }
+        }
+    })
+</script>
 @endsection
