@@ -88,10 +88,10 @@ class ClientController extends Controller
         $client = Client::find($id);
 
         $client->client_id = $request->input("client_id");
-        $client->name = $request->input("name");
+        $client->name = $request->input("client_name");
         $client->save();
 
-        return redirect("client");
+        // return redirect("client");
     }
 
     /**
