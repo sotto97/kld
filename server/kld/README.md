@@ -75,3 +75,18 @@
     >
     > -   https://qiita.com/AkiraTameto/items/4cefe2608b03f396c7cd
     > -   https://qiita.com/allJokin/items/7f9d6f98be27449ab624
+
+-   Laravel x Vue の開発環境を整える
+
+    -   Vetur / Prettier / ESLint の共存を考える
+
+    ```
+    // 以下のファイルを作成して参考記事を基にファイルを編集
+    $ vim .eslintrc.js
+    // ファイルができたら webpack.mix.js に読み込ませる内容は参考記事を参照
+    // ここまでできたら npm run して反映する
+    $ npm run watch
+    ```
+
+    -   参考記事
+        > https://qiita.com/qiiteinai/items/59f08a9e4917c8bc8f0d
