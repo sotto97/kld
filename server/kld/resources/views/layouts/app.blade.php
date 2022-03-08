@@ -26,13 +26,12 @@
 <body>
     <div id="app" class="flex flex-col min-h-screen">
         <nav class="navbar navbar-expand-md navbar-light bg-indigo-500 shadow-sm sticky top-0 z-10">
-            <div class="container">
-                <a class="navbar-brand text-white w-1/4" href="{{ route('article.index') }}">
-                    保守DB
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <div class="container w-full">
+                <div class="w-1/4">
+                    <a class="navbar-brand text-white w-full" href="{{ route('article.index') }}">
+                        保守DB
+                    </a>
+                </div>
 
                 <div class="w-2/4 text-center text-white font-semibold">
                     @include('layouts.title')
@@ -82,6 +81,11 @@
                         </li>
                         @endguest
                     </ul>
+                </div>
+                <div class="w-1/4 text-right">
+                    <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
             </div>
         </nav>
