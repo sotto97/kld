@@ -7,6 +7,14 @@
             <p class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">Add New Category</p>
         </a>
     </div>
+
+    {{-- Vueのモーダルウィンドウ表示のボタン --}}
+    <div class="w-full text-center">
+        <button type="button" @click="openModal" class="w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">カテゴリを追加する</button>
+    </div>
+    {{-- Vueのモーダルウィンドウ表示 --}}
+    <create-category v-show="showContent" @close="showContent = false"></create-category>
+
     <section id="categories" class="pt-2">
         <table class="table table-hover table-dark text-white">
             <thead class="w-full">
@@ -39,4 +47,22 @@
         </table>
     </section>
 </section>
+<script>
+    var app = new Vue({
+        el: '#content',
+        data() {
+            return {
+                showContent: false,
+            }
+        },
+        methods: {
+            openModal: function() {
+                this.showContent = true;
+            },
+            closeModal: function() {
+                this.showContent = false;
+            }
+        }
+    })
+</script>
 @endsection

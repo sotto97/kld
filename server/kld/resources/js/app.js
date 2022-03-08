@@ -31,6 +31,10 @@ Vue.component(
 );
 
 Vue.component("test", require("./components/category/Test.vue").default);
+Vue.component(
+    "create-category",
+    require("./components/category/CreateCategory.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
