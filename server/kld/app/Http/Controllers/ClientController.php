@@ -17,7 +17,7 @@ class ClientController extends Controller
     {
         // $clients = Client::get();
         $clients = DB::select("select * from clients order by created_at asc");
-        return view(('client.index'), compact('clients'));
+        return view("client.index", compact("clients"));
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.create');
+        return view("client.create");
     }
 
     /**
@@ -41,15 +41,15 @@ class ClientController extends Controller
         $client = new Client();
 
         $validatedData = $request->validate([
-            'client_id' => 'required',
-            'client_name' => 'required',
+            "client_id" => "required",
+            "client_name" => "required",
         ]);
 
-        $client->client_id  = $request->input('client_id');
-        $client->name       = $request->input('client_name');
+        $client->client_id = $request->input("client_id");
+        $client->name = $request->input("client_name");
         $client->save();
 
-        return redirect('client');
+        // return redirect('client');
     }
 
     /**
@@ -60,7 +60,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('client.index');
+        return view("client.index");
     }
 
     /**
@@ -73,7 +73,7 @@ class ClientController extends Controller
     {
         $client = Client::find($id);
 
-        return view(('client.edit'), compact('client'));
+        return view("client.edit", compact("client"));
     }
 
     /**
@@ -87,11 +87,11 @@ class ClientController extends Controller
     {
         $client = Client::find($id);
 
-        $client->client_id = $request->input('client_id');
-        $client->name = $request->input('name');
+        $client->client_id = $request->input("client_id");
+        $client->name = $request->input("name");
         $client->save();
 
-        return redirect('client');
+        return redirect("client");
     }
 
     /**
@@ -106,6 +106,6 @@ class ClientController extends Controller
 
         $client->delete();
 
-        return redirect('client');
+        return redirect("client");
     }
 }

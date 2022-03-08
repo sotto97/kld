@@ -25,6 +25,11 @@ Vue.component(
     require("./components/ExampleComponent.vue").default
 );
 
+Vue.component(
+    "add-client",
+    require("./components/client/AddClient.vue").default
+);
+
 Vue.component("test", require("./components/category/Test.vue").default);
 
 /**
@@ -33,6 +38,6 @@ Vue.component("test", require("./components/category/Test.vue").default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: "#app",
-});
+// const app = new Vue({
+//     el: "#app",
+// });
