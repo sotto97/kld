@@ -26,6 +26,11 @@ Vue.component(
 );
 
 Vue.component(
+    "hamburger-menu",
+    require("./components/HamburgerMenu.vue").default
+);
+
+Vue.component(
     "add-client",
     require("./components/client/AddClient.vue").default
 );

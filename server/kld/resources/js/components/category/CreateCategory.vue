@@ -5,22 +5,63 @@
                 <button
                     type="button"
                     v-on:click="$emit('close')"
-                    class="btn btn-success"
+                    class="btn bg-green-400 hover:bg-green-500 text-white"
                 >
                     閉じる <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div>
-                <p>開きました!!</p>
+            <div id="addClient" class="container items-center">
+                <form @submit.prevent="addNewCategory">
+                    <div class="py-4">
+                        <p class="w-full">カテゴリ名</p>
+                        <input
+                            v-model="category_name"
+                            type="text"
+                            class="form-control"
+                            name="category_name"
+                        />
+                    </div>
+                    <div class="w-full md:w-3/4 mx-auto my-2">
+                        <input
+                            type="submit"
+                            value="登録する"
+                            class="bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2"
+                        />
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </template>
-<script></script>
+
+<script>
+var app = new Vue({
+    el: "#addCategory",
+    data: {
+        category_name: "",
+    },
+    methods: {
+        addNewCategory() {
+            axios
+                .post("/category/store", {
+                    category_name: this.category_name,
+                })
+                .then((response) => {
+                    console.log("カテゴリ登録に成功しました。");
+                    window.location.href = "/category";
+                })
+                .catch((error) => {
+                    console.log("カテゴリ登録に失敗しました。");
+                });
+        },
+    },
+});
+</script>
+
 <style>
 #content {
     z-index: 2;
-    width: 80%;
+    width: 50%;
     padding: 1em;
     background: #fff;
 }
