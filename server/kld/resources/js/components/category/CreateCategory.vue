@@ -10,7 +10,7 @@
                     閉じる <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div id="addClient" class="container items-center">
+            <div id="addCategory" class="container items-center">
                 <form @submit.prevent="addNewCategory">
                     <div class="py-4">
                         <p class="w-full">カテゴリ名</p>
@@ -38,7 +38,9 @@
 var app = new Vue({
     el: "#addCategory",
     data: {
-        category_name: "",
+        return: {
+            category_name: "",
+        },
     },
     methods: {
         addNewCategory() {
