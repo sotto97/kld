@@ -7427,7 +7427,9 @@ var nav = new Vue({
 var app = new Vue({
   el: "#addCategory",
   data: {
-    category_name: ""
+    "return": {
+      category_name: ""
+    }
   },
   methods: {
     addNewCategory: function addNewCategory() {
@@ -11887,7 +11889,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#content {\n  z-index: 2;\n  width: 50%;\n  padding: 1em;\n  background: #fff;\n}\n#overlay {\n  z-index: 1;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n", ""]);
+exports.push([module.i, "#content {\n  z-index: 2;\n  padding: 1em;\n  background: #fff;\n}\n#overlay {\n  z-index: 1;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n", ""]);
 
 // exports
 
@@ -43865,7 +43867,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "container items-center", attrs: { id: "addClient" } },
+        { staticClass: "container items-center", attrs: { id: "addCategory" } },
         [
           _c(
             "form",

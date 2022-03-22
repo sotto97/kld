@@ -2,25 +2,40 @@
 
 @section('content')
 <section id="CategoryIndex" class="md:container md:mx-auto w-full md:w-1/2">
-    {{-- <div class="">
-        <a href="{{ route('category.create') }}" class="">
-            <p class="w-3/4 md:w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">Add New Category</p>
-        </a>
-    </div> --}}
-
     {{-- Vueのモーダルウィンドウ表示のボタン --}}
     <div class="w-full text-center py-2">
         <button type="button" @click="openModal" class="w-3/4 md:w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">カテゴリを追加する</button>
     </div>
+    {{-- <p v-model='category_name'>@{{ category_name }}</p> --}}
     {{-- Vueのモーダルウィンドウ表示 --}}
-    <create-category v-show="showContent" @close="showContent = false"></create-category>
+    {{-- <create-category v-show="createCategoryModal" @close="createCategoryModal = false"></create-category> --}}
+    <div id="overlay" v-show="createCategoryModal" @close="createCategoryModal = false">
+        <div id="content" class="w-2/3 md:w-1/2">
+            <div class="text-right">
+                <button type="button" v-on:click="closeModal" class="btn bg-green-400 hover:bg-green-500 text-white">
+                    閉じる <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="addCategory" class="container items-center">
+                <form @submit.prevent="addNewCategory">
+                    <div class="py-4">
+                        <p class="w-full">カテゴリ名</p>
+                        <input v-model="category_name" type="text" class="form-control" name="category_name" />
+                    </div>
+                    <div class="w-full md:w-3/4 mx-auto my-2">
+                        <input type="submit" value="登録する" class="bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <section id="categories">
         <table class="table table-hover table-dark text-white w-full">
             <thead class="">
                 <tr>
-                    <th class="w-3/12 md:w-4/12">ID</th>
-                    <th class="w-3/12 md:w-4/12">Name</th>
+                    <th class="w-1/12 md:w-4/12">ID</th>
+                    <th class="w-5/12 md:w-4/12">Name</th>
                     <th class="w-3/12 md:w-2/12 text-center">編集</th>
                     <th class="w-3/12 md:w-2/12 text-center">削除</th>
                 </tr>
@@ -47,22 +62,41 @@
         </table>
     </section>
 </section>
+
 <script>
     var app = new Vue({
         el: '#CategoryIndex',
         data() {
             return {
-                showContent: false,
+                createCategoryModal : false,
+                category_name       : "",
             }
         },
         methods: {
             openModal: function() {
-                this.showContent = true;
+                this.createCategoryModal = true;
             },
             closeModal: function() {
-                this.showContent = false;
+                this.createCategoryModal = false;
             },
+            addNewCategory() {
+                    axios
+                    .post("/category/store", {
+                    category_name: this.category_name,
+                    })
+                    .then((response) => {
+                    console.log("カテゴリ登録に成功しました。");
+                    window.location.href = "/category";
+                    })
+                    .catch((error) => {
+                    console.log("カテゴリ登録に失敗しました。");
+                    });
+            },
+            // deleteCategory() {
+            //     axios.post("/category/destroy")
+            // }
         }
     })
 </script>
+
 @endsection
