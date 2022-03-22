@@ -6,10 +6,10 @@
     <div class="w-full text-center py-2">
         <button type="button" @click="openModal" class="w-3/4 md:w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">カテゴリを追加する</button>
     </div>
-    {{-- <p v-model='category_name'>@{{ category_name }}</p> --}}
+
     {{-- Vueのモーダルウィンドウ表示 --}}
-    {{-- <create-category v-show="createCategoryModal" @close="createCategoryModal = false"></create-category> --}}
-    <div id="overlay" v-show="createCategoryModal" @close="createCategoryModal = false">
+    <create-category v-show="createCategoryModal" @close="createCategoryModal = false" @add="addNewCategory"></create-category>
+    {{-- <div id="overlay" v-show="createCategoryModal" @close="createCategoryModal = false">
         <div id="content" class="w-2/3 md:w-1/2">
             <div class="text-right">
                 <button type="button" v-on:click="closeModal" class="btn bg-green-400 hover:bg-green-500 text-white">
@@ -28,7 +28,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <section id="categories">
         <table class="table table-hover table-dark text-white w-full">
@@ -79,17 +79,16 @@
             closeModal: function() {
                 this.createCategoryModal = false;
             },
-            addNewCategory() {
-                    axios
-                    .post("/category/store", {
-                    category_name: this.category_name,
+            addNewCategory(category_name) {
+                    axios.post("/category/store", {
+                        category_name: category_name,
                     })
                     .then((response) => {
-                    console.log("カテゴリ登録に成功しました。");
-                    window.location.href = "/category";
+                        console.log("カテゴリ登録に成功しました。");
+                        window.location.href = "/category";
                     })
                     .catch((error) => {
-                    console.log("カテゴリ登録に失敗しました。");
+                        console.log("カテゴリ登録に失敗しました。");
                     });
             },
             // deleteCategory() {
