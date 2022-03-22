@@ -17,7 +17,7 @@ module.exports = {
         "prettier", // prettierをESLintと併用します
     ],
     rules: {
-        // ESLintが使用する整形ルールのうち、自分がoffにしたいルールなどを指定する
+        // ESLintの整形ルールのうち、自分がoffにしたいルールなどを指定する
         "vue/no-v-html": "off", // v-htmlの使用について
         "vue/prop-name-casing": "off", // Propsの変数の命名規則について
         "no-console": "off", // console.log()の使用について

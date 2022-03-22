@@ -10,7 +10,7 @@
     {{-- Vueのモーダルウィンドウ表示 --}}
     {{-- <create-category v-show="createCategoryModal" @close="createCategoryModal = false"></create-category> --}}
     <div id="overlay" v-show="createCategoryModal" @close="createCategoryModal = false">
-        <div id="content">
+        <div id="content" class="w-2/3 md:w-1/2">
             <div class="text-right">
                 <button type="button" v-on:click="closeModal" class="btn bg-green-400 hover:bg-green-500 text-white">
                     閉じる <i class="fas fa-times"></i>
