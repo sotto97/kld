@@ -50,4 +50,8 @@
     -   上記の手順で行えば OK
 
 -   Markdown の書き方
+
     > https://qiita.com/tbpgr/items/989c6badefff69377da7
+
+-   Vue.js の子コンポーネントから親コンポーネントに渡す方法
+    > https://codelikes.com/vue-v2-emit/
