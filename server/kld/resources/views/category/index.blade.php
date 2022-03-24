@@ -64,6 +64,12 @@
 </section>
 
 <script>
+    import CreateCategory from "./components/category/CreateCategory.vue";
+
+    export default {
+        components: { create-category }
+    };
+
     var app = new Vue({
         el: '#CategoryIndex',
         data() {
