@@ -1,3 +1,9 @@
+/*
+ * コメントは随時記載していく
+ * 20220322 [@ で resources/js を指定できるようにエイリアス作成]
+ *
+ */
+
 const mix = require("laravel-mix");
 const tailwindcss = require("tailwindcss"); // 追加
 
@@ -26,6 +32,12 @@ if (!mix.inProduction()) {
                 },
             ],
         },
+        // 以下 @ で resources/js を指定できるようにエイリアス作成
+        resolve: {
+            alias: {
+                "@": path.resolve("./resources/js"),
+            },
+        },
     });
 }
 
@@ -35,4 +47,4 @@ mix.js("resources/js/app.js", "public/js")
         // 追加
         processCssUrls: false, // 追加
         postCss: [tailwindcss("./tailwind.config.js")], // 追加
-    }); // 追加
+    });
