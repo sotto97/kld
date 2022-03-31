@@ -1,3 +1,8 @@
+/**
+ * vue / js ファイルのコーディンク規約を明示している
+ * ---------------------------------------------------
+ * 20220324 新規作成
+ */
 module.exports = {
     root: true,
     parserOptions: {
@@ -29,6 +34,7 @@ module.exports = {
             "error",
             {
                 printWidth: 120,
+                wordWrap: true,
                 tabWidth: 2,
                 useTabs: false,
                 singleQuote: true,

@@ -10,8 +10,13 @@
                     閉じる <i class="fas fa-times"></i>
                 </button>
             </div>
+
             <div id="addCategory" class="container items-center">
-                <form @submit.prevent="addNewCategory">
+                <!--
+                    $emitで親コンポーネントにaddを渡して、addNewCategoryメソッドにする。
+                    引数として、category_nameを渡す。
+                 -->
+                <form @submit.prevent="$emit('add', category_name)">
                     <div class="py-4">
                         <p class="w-full">カテゴリ名</p>
                         <input
@@ -42,21 +47,7 @@ var app = new Vue({
             category_name: "",
         },
     },
-    methods: {
-        addNewCategory() {
-            axios
-                .post("/category/store", {
-                    category_name: this.category_name,
-                })
-                .then((response) => {
-                    console.log("カテゴリ登録に成功しました。");
-                    window.location.href = "/category";
-                })
-                .catch((error) => {
-                    console.log("カテゴリ登録に失敗しました。");
-                });
-        },
-    },
+    methods: {},
 });
 </script>
 
@@ -64,6 +55,7 @@ var app = new Vue({
 #content {
     z-index: 2;
     padding: 1em;
+    width: 50%;
     background: #fff;
 }
 
