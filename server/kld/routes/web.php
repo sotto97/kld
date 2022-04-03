@@ -42,7 +42,7 @@ Route::group(["prefix" => "article", "middleware" => "auth"], function () {
     Route::get("create", "ArticleController@create")->name("article.create");
     Route::post("store", "ArticleController@store")->name("article.store");
     Route::get("{id}", "ArticleController@show")->name("article.show");
-    Route::get("edit/{id}", "ArticleController@edit")->nasme("article.edit");
+    Route::get("edit/{id}", "ArticleController@edit")->name("article.edit");
     Route::post("update/{id}", "ArticleController@update")->name("article.update");
 });
 
