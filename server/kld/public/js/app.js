@@ -7414,21 +7414,6 @@ var nav = new Vue({
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var app = new Vue({
   el: "#addCategory",
   data: {
@@ -43852,10 +43837,7 @@ var render = function () {
               },
             },
           },
-          [
-            _vm._v("\n                閉じる "),
-            _c("i", { staticClass: "fas fa-times" }),
-          ]
+          [_vm._v("閉じる "), _c("i", { staticClass: "fas fa-times" })]
         ),
       ]),
       _vm._v(" "),
