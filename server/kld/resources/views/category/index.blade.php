@@ -31,7 +31,11 @@
                         </a>
                     </td>
                     <td>
-                        <form action="{{ route('category.delete', ['id'=>$category->id] ) }}" method="post">
+                        {{-- <form action="{{ route('category.delete', ['id'=>$category->id] ) }}" method="post">
+                            @csrf
+                            <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">delete</button>
+                        </form> --}}
+                        <form @submit.prevent="deleteCategory('{{ $category->id }}')">
                             @csrf
                             <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">delete</button>
                         </form>
@@ -72,9 +76,18 @@
                     console.log("カテゴリ登録に失敗しました。");
                 });
             },
-            // deleteCategory() {
-            //     axios.post("/category/destroy")
-            // }
+            deleteCategory(id) {
+                axios.post("/category/delete/" + id,{
+                    id: id,
+                })
+                .then(response => {
+                    console.log(true);
+                    window.location.href = '/category';
+                })
+                .catch(error => {
+                    console.log(false);
+                })
+            }
         }
     })
 </script>

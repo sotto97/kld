@@ -15,9 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = DB::select(
-            "select * from categories order by created_at asc"
-        );
+        $categories = DB::select("select * from categories order by created_at asc");
         return view("category.index", compact("categories"));
     }
 
@@ -106,6 +104,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect("category");
+        // return redirect("category");
     }
 }
