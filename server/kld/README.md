@@ -138,3 +138,8 @@
 
     -   参考記事
         > https://cufl.hateblo.jp/entry/2020/12/16/003000
+
+-   Git で add の取り消し
+    ```bash
+    git rm --cached -r file_name
+    ```
