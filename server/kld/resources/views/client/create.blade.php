@@ -44,8 +44,7 @@
     },
     methods: {
         addNewClient() {
-            axios
-                .post("/client/store", {
+            axios.post("/client/store", {
                     client_id: this.client_id,
                     client_name: this.client_name,
                 })

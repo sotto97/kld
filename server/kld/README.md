@@ -90,3 +90,56 @@
 
     -   参考記事
         > https://qiita.com/qiiteinai/items/59f08a9e4917c8bc8f0d
+
+-   コードフォーマッタがやっと効いた。
+
+    -   eslint のせいでもなく、setting.json のせいでもなく、問題だったのは[.editorconfig]でした
+
+        ```
+        ["INFO" - 12:22:18 AM] Formatting file:///Users/Yusuke/Desktop/work/kld/server/kld/routes/web.php
+
+        ["INFO" - 12:22:18 AM] Using ignore file (if present) at /Users/Yusuke/Desktop/work/kld/server/kld/.prettierignore
+        ["INFO" - 12:22:18 AM] File Info:
+        {
+        "ignored": false,
+        "inferredParser": "php"
+        }
+        ["INFO" - 12:22:18 AM] Detected local configuration (i.e. .prettierrc or .editorconfig), VS Code configuration will not be used
+        ["INFO" - 12:22:18 AM] Prettier Options:
+        {
+        "filepath": "/Users/Yusuke/Desktop/work/kld/server/kld/routes/web.php",
+        "parser": "php",
+        "useTabs": false,
+        "tabWidth": 4,
+        "endOfLine": "lf"
+        }
+        ["INFO" - 12:22:18 AM] Formatting completed in 0.085ms.
+        ```
+
+        要は[.editorconfig]を以下のように編集
+
+        ```
+        [*]
+
+        charset = utf-8
+        end_of_line = lf
+        insert_final_newline = true
+        indent_style = space
+        indent_size = 4
+        trim_trailing_whitespace = true
+        max_line_length = 200       // これを追加
+        ```
+
+        どうやら .editorconfig が最強らしい。(以下優先順位)
+
+        ```
+        .editorconfig ＞ setting.json ＞ .eslintrc.js
+        ```
+
+    -   参考記事
+        > https://cufl.hateblo.jp/entry/2020/12/16/003000
+
+-   Git で add の取り消し
+    ```bash
+    git rm --cached -r file_name
+    ```

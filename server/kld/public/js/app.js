@@ -7414,16 +7414,6 @@ var nav = new Vue({
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var app = new Vue({
   el: "#addCategory",
   data: {
@@ -7431,18 +7421,7 @@ var app = new Vue({
       category_name: ""
     }
   },
-  methods: {
-    addNewCategory: function addNewCategory() {
-      axios.post("/category/store", {
-        category_name: this.category_name
-      }).then(function (response) {
-        console.log("カテゴリ登録に成功しました。");
-        window.location.href = "/category";
-      })["catch"](function (error) {
-        console.log("カテゴリ登録に失敗しました。");
-      });
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -11889,7 +11868,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "#content {\n  z-index: 2;\n  padding: 1em;\n  background: #fff;\n}\n#overlay {\n  z-index: 1;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n", ""]);
+exports.push([module.i, "#content {\n  z-index: 2;\n  padding: 1em;\n  width: 50%;\n  background: #fff;\n}\n#overlay {\n  z-index: 1;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n", ""]);
 
 // exports
 
@@ -43858,10 +43837,7 @@ var render = function () {
               },
             },
           },
-          [
-            _vm._v("\n                閉じる "),
-            _c("i", { staticClass: "fas fa-times" }),
-          ]
+          [_vm._v("閉じる "), _c("i", { staticClass: "fas fa-times" })]
         ),
       ]),
       _vm._v(" "),
@@ -43875,7 +43851,7 @@ var render = function () {
               on: {
                 submit: function ($event) {
                   $event.preventDefault()
-                  return _vm.addNewCategory.apply(null, arguments)
+                  return _vm.$emit("add", _vm.category_name)
                 },
               },
             },
@@ -56229,9 +56205,10 @@ Vue.component("create-category", __webpack_require__(/*! ./components/category/C
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-// const app = new Vue({
-//     el: "#app",
-// });
+
+var app = new Vue({
+  el: "#app"
+});
 
 /***/ }),
 
