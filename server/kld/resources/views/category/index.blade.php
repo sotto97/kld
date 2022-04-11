@@ -29,11 +29,12 @@
                         <a href="{{ route('category.edit', ['id'=> $category->id]) }}">
                             <button class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集</button>
                         </a>
+                        <button @click="openModal" class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集</button>
                     </td>
                     <td>
                         {{-- <form action="{{ route('category.delete', ['id'=>$category->id] ) }}" method="post">
-                            @csrf
-                            <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">delete</button>
+                        @csrf
+                        <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">delete</button>
                         </form> --}}
                         <form @submit.prevent="deleteCategory('{{ $category->id }}')">
                             @csrf
@@ -52,44 +53,45 @@
         el: '#CategoryIndex',
         data() {
             return {
-                createCategoryModal : false,
+                createCategoryModal: false,
                 // category_name       : "", // 子コンポーネントから渡されるのでコメントアウト
             }
         },
         methods: {
-            openModal: function() {
+            openModal: function () {
                 this.createCategoryModal = true;
             },
-            closeModal: function() {
+            closeModal: function () {
                 this.createCategoryModal = false;
             },
             // 子コンポーネントから渡された category_name を引数として取得
             addNewCategory(category_name) {
                 axios.post("/category/store", {
-                    category_name: category_name,
-                })
-                .then((response) => {
-                    console.log("カテゴリ登録に成功しました。");
-                    window.location.href = "/category";
-                })
-                .catch((error) => {
-                    console.log("カテゴリ登録に失敗しました。");
-                });
+                        category_name: category_name,
+                    })
+                    .then((response) => {
+                        console.log("カテゴリ登録に成功しました。");
+                        window.location.href = "/category";
+                    })
+                    .catch((error) => {
+                        console.log("カテゴリ登録に失敗しました。");
+                    });
             },
             deleteCategory(id) {
-                axios.post("/category/delete/" + id,{
-                    id: id,
-                })
-                .then(response => {
-                    console.log(true);
-                    window.location.href = '/category';
-                })
-                .catch(error => {
-                    console.log(false);
-                })
+                axios.post("/category/delete/" + id, {
+                        id: id,
+                    })
+                    .then(response => {
+                        console.log(true);
+                        window.location.href = '/category';
+                    })
+                    .catch(error => {
+                        console.log(false);
+                    })
             }
         }
     })
+
 </script>
 
 @endsection
