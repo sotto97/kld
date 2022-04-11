@@ -27,7 +27,7 @@
                     <td>{{ $category->name }}</td>
                     <td>
                         <a href="{{ route('category.edit', ['id'=> $category->id]) }}">
-                            <button class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">edit</button>
+                            <button class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集</button>
                         </a>
                     </td>
                     <td>
@@ -37,7 +37,7 @@
                         </form> --}}
                         <form @submit.prevent="deleteCategory('{{ $category->id }}')">
                             @csrf
-                            <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">delete</button>
+                            <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">削除</button>
                         </form>
                     </td>
                 </tr>
