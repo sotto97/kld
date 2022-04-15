@@ -25,12 +25,14 @@
                 <tr>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
+                    {{-- 編集ボタン --}}
                     <td>
                         <a href="{{ route('category.edit', ['id'=> $category->id]) }}">
                             <button class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集</button>
                         </a>
                         <button @click="openModal" class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集</button>
                     </td>
+                    {{-- 削除ボタン --}}
                     <td>
                         {{-- <form action="{{ route('category.delete', ['id'=>$category->id] ) }}" method="post">
                         @csrf
@@ -78,16 +80,22 @@
                     });
             },
             deleteCategory(id) {
-                axios.post("/category/delete/" + id, {
-                        id: id,
-                    })
-                    .then(response => {
-                        console.log(true);
-                        window.location.href = '/category';
-                    })
-                    .catch(error => {
-                        console.log(false);
-                    })
+                if (confirm('削除してもよろしいですか？')){
+                    axios.post("/category/delete/" + id, {
+                            id: id,
+                        })
+                        .then(response => {
+                            console.log(true);
+                            alert('削除に成功しました');
+                            window.location.href = '/category';
+                        })
+                        .catch(error => {
+                            alert('削除に失敗しました');
+                            return false;
+                        })
+                } else {
+                    return false;
+                }
             }
         }
     })
