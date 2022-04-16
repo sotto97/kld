@@ -4,11 +4,13 @@
 <section id="CategoryIndex" class="md:container md:mx-auto w-full md:w-1/2">
     {{-- Vueのモーダルウィンドウ表示のボタン --}}
     <div class="w-full text-center py-2">
-        <button type="button" @click="openModal" class="w-3/4 md:w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">カテゴリを追加する</button>
+        <button type="button" @click="openModal"
+            class="w-3/4 md:w-1/2 text-center py-2 mx-auto bg-gray-700 text-white rounded-full">カテゴリを追加する</button>
     </div>
 
     {{-- Vueのモーダルウィンドウ表示 --}}
-    <create-category v-show="createCategoryModal" @close="createCategoryModal = false" @add="addNewCategory"></create-category>
+    <create-category v-show="createCategoryModal" @close="createCategoryModal = false" @add="addNewCategory">
+    </create-category>
 
     <section id="categories">
         <table class="table table-hover table-dark text-white w-full">
@@ -27,23 +29,24 @@
                     <td>{{ $category->name }}</td>
                     {{-- 編集ボタン --}}
                     <td>
-                        <a href="{{ route('category.edit', ['id'=> $category->id]) }}">
-                            <button class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集</button>
-                        </a>
-                        <button @click="openModal" class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集</button>
+                        <button @click="openEditModal" class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto
+                            rounded-lg">編集
+                        </button>
+
                     </td>
                     {{-- 削除ボタン --}}
                     <td>
-                        {{-- <form action="{{ route('category.delete', ['id'=>$category->id] ) }}" method="post">
-                        @csrf
-                        <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">delete</button>
-                        </form> --}}
                         <form @submit.prevent="deleteCategory('{{ $category->id }}')">
                             @csrf
-                            <button class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">削除</button>
+                            <button
+                                class="bg-red-500 hover:bg-red-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">削除</button>
                         </form>
                     </td>
                 </tr>
+                <edit-category v-show="editCategoryModal" :category_name={{ json_encode($category->name) }}
+                    :id="{{ json_encode($category->id) }}" @close="editCategoryModal = false"
+                    @edit="editCategory">
+                </edit-category>
                 @endforeach
             </tbody>
         </table>
@@ -56,7 +59,9 @@
         data() {
             return {
                 createCategoryModal: false,
-                // category_name       : "", // 子コンポーネントから渡されるのでコメントアウト
+                editCategoryModal: false,
+                // categories: '$categories',
+                // category_name       : "", // 子コンポーネントから渡されるので不要
             }
         },
         methods: {
@@ -79,13 +84,32 @@
                         console.log("カテゴリ登録に失敗しました。");
                     });
             },
+            openEditModal: function () {
+                this.editCategoryModal = true;
+            },
+            closeEditModal: function () {
+                this.editCategoryModal = false;
+            },
+
+            addNewCategory(category_name) {
+                axios.post("/category/udpate" + id, {
+                        category_name: category_name,
+                        id: id,
+                    })
+                    .then((response) => {
+                        console.log("カテゴリ更新に成功しました。");
+                        window.location.href = "/category";
+                    })
+                    .catch((error) => {
+                        console.log("カテゴリ更新に失敗しました。");
+                    });
+            },
             deleteCategory(id) {
                 if (confirm('削除してもよろしいですか？')){
                     axios.post("/category/delete/" + id, {
                             id: id,
                         })
                         .then(response => {
-                            console.log(true);
                             alert('削除に成功しました');
                             window.location.href = '/category';
                         })

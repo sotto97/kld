@@ -7459,11 +7459,21 @@ var app = new Vue({
 //
 //
 //
+//
 var app = new Vue({
-  el: "#addCategory",
+  el: "#editCategory",
+  props: {
+    category_name: {
+      type: String,
+      required: true
+    },
+    'id': {
+      type: Number // default: ''
+
+    }
+  },
   data: {
-    "return": {
-      category_name: ""
+    "return": {// category_name: '',
     }
   },
   methods: {}
@@ -44039,7 +44049,10 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "container items-center", attrs: { id: "addCategory" } },
+        {
+          staticClass: "container items-center",
+          attrs: { id: "editCategory" },
+        },
         [
           _c(
             "form",
@@ -44047,14 +44060,16 @@ var render = function () {
               on: {
                 submit: function ($event) {
                   $event.preventDefault()
-                  return _vm.$emit("add", _vm.category_name)
+                  return _vm.$emit("edit", _vm.category_name, _vm.id)
                 },
               },
             },
             [
               _c("div", { staticClass: "py-4" }, [
                 _c("p", { staticClass: "w-full" }, [_vm._v("カテゴリ名")]),
-                _vm._v(" "),
+                _vm._v(
+                  "\n          " + _vm._s(_vm.category_name) + "\n          "
+                ),
                 _c("input", {
                   directives: [
                     {
@@ -44095,7 +44110,7 @@ var staticRenderFns = [
       _c("input", {
         staticClass:
           "bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2",
-        attrs: { type: "submit", value: "登録する" },
+        attrs: { type: "submit", value: "更新する" },
       }),
     ])
   },
@@ -56391,13 +56406,20 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component("example-component", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component("hamburger-menu", __webpack_require__(/*! ./components/HamburgerMenu.vue */ "./resources/js/components/HamburgerMenu.vue")["default"]);
-Vue.component("add-client", __webpack_require__(/*! ./components/client/AddClient.vue */ "./resources/js/components/client/AddClient.vue")["default"]);
-Vue.component("test", __webpack_require__(/*! ./components/category/Test.vue */ "./resources/js/components/category/Test.vue")["default"]); // カテゴリ機能
+/**
+ * カテゴリ機能のコンンポーネント
+ */
 
 Vue.component("create-category", __webpack_require__(/*! ./components/category/CreateCategory.vue */ "./resources/js/components/category/CreateCategory.vue")["default"]);
 Vue.component("edit-category", __webpack_require__(/*! ./components/category/EditCategory.vue */ "./resources/js/components/category/EditCategory.vue")["default"]);
+/**
+ * テスト用のコンンポーネント
+ */
+
+Vue.component("example-component", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component("hamburger-menu", __webpack_require__(/*! ./components/HamburgerMenu.vue */ "./resources/js/components/HamburgerMenu.vue")["default"]);
+Vue.component("add-client", __webpack_require__(/*! ./components/client/AddClient.vue */ "./resources/js/components/client/AddClient.vue")["default"]);
+Vue.component("test", __webpack_require__(/*! ./components/category/Test.vue */ "./resources/js/components/category/Test.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
