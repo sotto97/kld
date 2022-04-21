@@ -35,7 +35,7 @@ export default{
     },
     'id': {
       type: Number,
-      // default: ''
+      default: ''
     }
   },
   methods: {},
