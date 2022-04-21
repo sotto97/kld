@@ -100,10 +100,16 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category, $id)
     {
+        // dd($category);
         $category = Category::find($id);
 
         $category->delete();
 
-        // return redirect("category");
+        // 例外処理は後々に記載
+        // try {
+        //     $category->delete()
+        // }catch {
+        //     return false;
+        // }
     }
 }
