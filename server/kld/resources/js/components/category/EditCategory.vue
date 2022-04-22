@@ -29,7 +29,7 @@
 export default{
   el: '#editCategory',
   props: {
-    category_name: {
+    'category_name': {
       type: String,
       required: true,
     },
