@@ -26,7 +26,7 @@
 
 <script>
 export default{
-  el: '#editCategory',
+  name: 'editCategory',
   props: {
     'category_name': {
       type: String,

@@ -13,7 +13,7 @@
         <form @submit.prevent="$emit('add', category_name)">
           <div class="py-4">
             <p class="w-full">カテゴリ名</p>
-            <input v-model="category_name" type="text" class="form-control" name="category_name" />
+            <input v-model="category_name" type="text" class="form-control" />
           </div>
           <div class="w-full md:w-3/4 mx-auto my-2">
             <input type="submit" value="登録する" class="bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2" />
@@ -26,11 +26,11 @@
 
 <script>
 var app = new Vue({
-  el: "#addCategory",
-  data: {
-    return: {
-      category_name: "",
-    },
+  el: '#addCategory',
+  data() {
+    return {
+      category_name: '',
+    }
   },
   methods: {},
 });
