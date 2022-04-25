@@ -13,8 +13,7 @@
         <form @submit.prevent="$emit('edit', category_name, id)">
           <div class="py-4">
             <p class="w-full">カテゴリ名</p>
-            <p>{{ category_name }}</p>
-            <input v-model="category_name" type="text" class="form-control" name="category_name" />
+            <input v-model='category_name' type="text" class="form-control" name="category_name" />
           </div>
           <div class="w-full md:w-3/4 mx-auto my-2">
             <input type="submit" value="更新する" class="bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2" />
@@ -38,7 +37,6 @@ export default{
       default: ''
     }
   },
-  methods: {},
 }
 </script>
 

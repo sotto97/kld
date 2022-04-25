@@ -13,7 +13,7 @@
     </create-category>
 
     {{-- Vue編集用のモーダル --}}
-    <edit-category v-show="editCategoryModal" :category_name="category_name" @close="editCategoryModal = false"
+    <edit-category v-show='editCategoryModal' :category_name='category_name' :id='id' @close="editCategoryModal = false"
         @edit="updateCategory">
     </edit-category>
 
@@ -95,9 +95,8 @@
             closeEditModal: function () {
                 this.editCategoryModal = false;
             },
-
-            updateCategory(category_name) {
-                axios.post("/category/udpate" + id, {
+            updateCategory(category_name, id) {
+                axios.post("/category/update/" + id, {
                         category_name: category_name,
                         id: id,
                     })
