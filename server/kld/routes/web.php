@@ -46,7 +46,7 @@ Route::group(["prefix" => "article", "middleware" => "auth"], function () {
     Route::post("update/{id}", "ArticleController@update")->name("article.update");
 });
 
-// 【カテゴリ関連】s
+// 【カテゴリ関連】
 Route::group(["prefix" => "category", "middleware" => "auth"], function () {
     Route::get("", "CategoryController@index")->name("category.index");
     Route::get("create", "CategoryController@create")->name("category.create");

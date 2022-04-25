@@ -12,6 +12,11 @@
     <create-category v-show="createCategoryModal" @close="createCategoryModal = false" @add="addNewCategory">
     </create-category>
 
+    {{-- Vue編集用のモーダル --}}
+    <edit-category v-show='editCategoryModal' :category_name='category_name' :id='id' @close="editCategoryModal = false"
+        @edit="updateCategory">
+    </edit-category>
+
     <section id="categories">
         <table class="table table-hover table-dark text-white w-full">
             <thead class="">
@@ -29,8 +34,8 @@
                     <td>{{ $category->name }}</td>
                     {{-- 編集ボタン --}}
                     <td>
-                        <button @click="openEditModal" class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto
-                            rounded-lg">編集
+                        <button @click="openEditModal('{{ $category->id }}','{{ $category->name }}')"
+                            class="bg-teal-500 hover:bg-teal-600 text-white py-0 md:py-1 w-full mx-auto rounded-lg">編集
                         </button>
 
                     </td>
@@ -43,10 +48,6 @@
                         </form>
                     </td>
                 </tr>
-                <edit-category v-show="editCategoryModal" :category_name={{ json_encode($category->name) }}
-                    :id="{{ json_encode($category->id) }}" @close="editCategoryModal = false"
-                    @edit="editCategory">
-                </edit-category>
                 @endforeach
             </tbody>
         </table>
@@ -60,6 +61,8 @@
             return {
                 createCategoryModal: false,
                 editCategoryModal: false,
+                category_name: '',
+                id: '',
                 // categories: '$categories',
                 // category_name       : "", // 子コンポーネントから渡されるので不要
             }
@@ -84,15 +87,16 @@
                         console.log("カテゴリ登録に失敗しました。");
                     });
             },
-            openEditModal: function () {
+            openEditModal: function (id,name) {
+                this.category_name = name;
+                this.id = id;
                 this.editCategoryModal = true;
             },
             closeEditModal: function () {
                 this.editCategoryModal = false;
             },
-
-            addNewCategory(category_name) {
-                axios.post("/category/udpate" + id, {
+            updateCategory(category_name, id) {
+                axios.post("/category/update/" + id, {
                         category_name: category_name,
                         id: id,
                     })
