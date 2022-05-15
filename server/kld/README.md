@@ -148,10 +148,6 @@
 # windows での環境構築で発生した事象
 
 ```bash
-
-sotto@DESKTOP-82QB9O5:~/work/kld/server/kld$ php artisan ser
-PHP Warning:  require(/home/sotto/work/kld/server/kld/vendor/autoload.php): failed to open stream: No such file or directory in /home/sotto/work/kld/server/kld/artisan on line 18
-PHP Fatal error:  require(): Failed opening required '/home/sotto/work/kld/server/kld/vendor/autoload.php' (include_path='.:/usr/share/php') in /home/sotto/work/kld/server/kld/artisan on line 18
 sotto@DESKTOP-82QB9O5:~/work/kld/server/kld$ composer update
 Composer is operating significantly slower than normal because you do not have the PHP curl extension enabled.
 Loading composer repositories with package information
@@ -188,5 +184,13 @@ To enable extensions, verify that they are enabled in your .ini files:
     - /etc/php/7.4/cli/conf.d/20-tokenizer.ini
 You can also run `php --ini` in a terminal to see which files are used by PHP in CLI mode.
 Alternatively, you can run Composer with `--ignore-platform-req=ext-dom` to temporarily ignore these required extensions.
+```
+
+以下のコマンドで解決
 
 ```
+sudo apt-get install php7.4-dom
+```
+
+参考リンク
+https://qiita.com/yamauchi_k/items/63e38ded0eb8571fabfd
