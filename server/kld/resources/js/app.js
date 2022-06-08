@@ -40,6 +40,7 @@ Vue.component("test", require("./components/category/Test.vue").default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: "#app",
-});
+// エラーに出力されるため削除
+// const app = new Vue({
+//     el: "#app",
+// });

@@ -7415,11 +7415,11 @@ var nav = new Vue({
 //
 //
 var app = new Vue({
-  el: "#addCategory",
-  data: {
-    "return": {
-      category_name: ""
-    }
+  el: '#addCategory',
+  data: function data() {
+    return {
+      category_name: ''
+    };
   },
   methods: {}
 });
@@ -7462,7 +7462,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  el: '#editCategory',
+  name: 'editCategory',
   props: {
     'category_name': {
       type: String,
@@ -43852,7 +43852,7 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"overlay"}},[_c('div',{attrs:{"id":"content"}},[_c('div',{staticClass:"text-right"},[_c('button',{staticClass:"btn bg-green-400 hover:bg-green-500 text-white",attrs:{"type":"button"},on:{"click":function($event){return _vm.$emit('close')}}},[_vm._v("閉じる "),_c('i',{staticClass:"fas fa-times"})])]),_vm._v(" "),_c('div',{staticClass:"container items-center",attrs:{"id":"addCategory"}},[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.$emit('add', _vm.category_name)}}},[_c('div',{staticClass:"py-4"},[_c('p',{staticClass:"w-full"},[_vm._v("カテゴリ名")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.category_name),expression:"category_name"}],staticClass:"form-control",attrs:{"type":"text","name":"category_name"},domProps:{"value":(_vm.category_name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.category_name=$event.target.value}}})]),_vm._v(" "),_vm._m(0)])])])])}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"overlay"}},[_c('div',{attrs:{"id":"content"}},[_c('div',{staticClass:"text-right"},[_c('button',{staticClass:"btn bg-green-400 hover:bg-green-500 text-white",attrs:{"type":"button"},on:{"click":function($event){return _vm.$emit('close')}}},[_vm._v("閉じる "),_c('i',{staticClass:"fas fa-times"})])]),_vm._v(" "),_c('div',{staticClass:"container items-center",attrs:{"id":"addCategory"}},[_c('form',{on:{"submit":function($event){$event.preventDefault();return _vm.$emit('add', _vm.category_name)}}},[_c('div',{staticClass:"py-4"},[_c('p',{staticClass:"w-full"},[_vm._v("カテゴリ名")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.category_name),expression:"category_name"}],staticClass:"form-control",attrs:{"type":"text"},domProps:{"value":(_vm.category_name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.category_name=$event.target.value}}})]),_vm._v(" "),_vm._m(0)])])])])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"w-full md:w-3/4 mx-auto my-2"},[_c('input',{staticClass:"bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2",attrs:{"type":"submit","value":"登録する"}})])}]
 render._withStripped = true
 
@@ -56152,10 +56152,10 @@ Vue.component("test", __webpack_require__(/*! ./components/category/Test.vue */ 
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-var app = new Vue({
-  el: "#app"
-});
+// エラーに出力されるため削除
+// const app = new Vue({
+//     el: "#app",
+// });
 
 /***/ }),
 

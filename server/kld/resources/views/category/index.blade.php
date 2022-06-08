@@ -63,8 +63,6 @@
                 editCategoryModal: false,
                 category_name: '',
                 id: '',
-                // categories: '$categories',
-                // category_name       : "", // 子コンポーネントから渡されるので不要
             }
         },
         methods: {

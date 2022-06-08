@@ -24,10 +24,10 @@
             </tr>
         </table>
         <div class="w-3/4 mx-auto my-2">
-            <input type="submit" value="登録する" class="bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2 transition">
+            <input type="submit" value="登録する"
+                class="bg-gray-700 hover:bg-gray-500 rounded-full text-white w-full p-2 transition">
         </div>
     </form>
-    {{-- <test></test> --}}
 </div>
 <script>
     var app = new Vue({
